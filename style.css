@@ -1,0 +1,70 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0; /* Light grey background for the entire page */
+    color: #333;
+}
+
+header {
+    background-color: #007BFF;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+header img {
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+header div {
+    text-align: left;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.personal {
+    background-color: #f8d7da; /* Light red */
+}
+
+.education {
+    background-color: #d1ecf1; /* Light blue */
+}
+
+.Goals {
+    background-color: #d4edda; /* Light green */
+}
+
+h2 {
+    font-size: 22px;
+    color: #007BFF;
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 0;
+}

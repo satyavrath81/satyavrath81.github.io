@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Get references to controls
   const searchBtn       = document.getElementById('searchBtn');
   const searchBar       = document.getElementById('searchBar');
   const locationSelect  = document.getElementById('locationSelect');
   const useLocationBtn  = document.getElementById('useLocationBtn');
   const errorMessage    = document.getElementById('errorMessage');
 
-  // Initialize placeholders on page load
   initializePlaceholders();
-
-  // Event: free-text search button clicked
+  
   searchBtn.addEventListener('click', () => {
     const query = searchBar.value.trim();
     if (!query) {
@@ -20,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchGeocoding(query);
   });
 
-  // Event: preset location selected
   locationSelect.addEventListener('change', () => {
     const val = locationSelect.value;
     if (!val) return;
@@ -29,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchSunData(lat, lon);
   });
 
-  // Event: use browser Geolocation API
   useLocationBtn.addEventListener('click', () => {
     clearError();
     if (!navigator.geolocation) {
@@ -78,19 +73,16 @@ function fetchGeocoding(city) {
 }
 
 function fetchSunData(lat, lon) {
-  // Build API endpoints
+ 
   const todayUrl    = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=today`;
   const tomorrowUrl = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}&date=tomorrow`;
 
-  // Date formatting arrays
   const days   = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-  // Format today's date
   const now      = new Date();
   const todayStr = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
 
-  // Format tomorrow's date
   const tom      = new Date(now);
   tom.setDate(tom.getDate() + 1);
   const tomorrowStr = `${days[tom.getDay()]}, ${months[tom.getMonth()]} ${tom.getDate()}, ${tom.getFullYear()}`;
@@ -106,7 +98,6 @@ function fetchSunData(lat, lon) {
     document.getElementById(prefix + 'TimeZone').textContent    = data.timezone;
   }
 
-  // Fetch & display today's data
   fetch(todayUrl)
     .then(res => res.json())
     .then(json => {
